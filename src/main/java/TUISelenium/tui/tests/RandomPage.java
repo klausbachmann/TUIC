@@ -31,7 +31,7 @@ public class RandomPage {
 		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@Test
+	@Test(testName="Standard Buchungstestfall")
 	public void start() throws InterruptedException {
 		System.out.println("Test start");
 		page = PageFactory.initElements(driver, PageObjectCabinSelection.class);
