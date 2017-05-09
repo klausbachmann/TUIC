@@ -1,8 +1,8 @@
 package TUISelenium.tui;
 
-import org.junit.Test;
-import org.junit.experimental.ParallelComputer;
-import org.junit.runner.JUnitCore;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class TheRunner {
 
@@ -10,6 +10,6 @@ public class TheRunner {
 	public void theRun(){
 		Class[] cls = {ParClass1.class, ParClass2.class, ParClass3.class,
 				ParClass1.class, ParClass2.class, ParClass3.class};
-		JUnitCore.runClasses(ParallelComputer.classes(), cls);
+		//JUnitCore.runClasses(ParallelComputer.classes(), cls);
 	}
 }

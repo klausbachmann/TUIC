@@ -3,9 +3,9 @@ package TUISelenium.tui;
 import java.io.FileReader;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ import au.com.bytecode.opencsv.CSVReader;
 public class MassData {
 	WebDriver driver;
 	
-	@Before
+	@BeforeTest
 	public void beforeTest(){
 		driver = new FirefoxDriver();
 		//driver = new HtmlUnitDriver();
@@ -120,7 +120,7 @@ public class MassData {
 
 	}
 	
-	@After
+	@AfterTest
 	public void tearDown(){
 		driver.quit();
 	}

@@ -1,14 +1,12 @@
 package TUISelenium.tui;
 
-import junit.*;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 public class FirstTest{
 	WebDriver driver;
 	
-	@Before
+	@BeforeTest
 	public void beforeTest() throws Exception{
 		driver = new FirefoxDriver();
 		//driver = new HtmlUnitDriver();
@@ -114,7 +112,7 @@ public class FirstTest{
 	    }
 	}
 	
-	@After
+	@AfterTest
 	public void AfterTest(){
 		driver.quit();
 	}

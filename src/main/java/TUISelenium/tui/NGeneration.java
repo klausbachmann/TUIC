@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +19,7 @@ public class NGeneration {
 	WebDriver driver;
 	WebDriverWait wait;
 	
-	@Before
+	@BeforeTest
 	public void beforeSuite(){
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -42,7 +42,7 @@ public class NGeneration {
 		
 	}
 	
-	@After
+	@AfterTest
 	public void testDown(){
 		driver.quit();
 	}

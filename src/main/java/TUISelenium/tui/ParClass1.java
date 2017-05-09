@@ -1,16 +1,16 @@
 package TUISelenium.tui;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class ParClass1 {
 
 	WebDriver driver;
 	
-	@Before
+	@BeforeTest
 	public void init(){
 		driver = new FirefoxDriver();
 		driver.get("http://www.haribo.de");
@@ -19,7 +19,7 @@ public class ParClass1 {
 	@Test
 	public void haribo(){}
 	
-	@After
+	@AfterTest
 	public void tearDown(){
 		driver.quit();
 	}
