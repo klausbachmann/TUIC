@@ -33,7 +33,6 @@ public class RandomPage {
 
 	@Test(testName="Standard Buchungstestfall")
 	public void start() throws InterruptedException {
-		System.out.println("Test start");
 		page = PageFactory.initElements(driver, PageObjectCabinSelection.class);
 		page.open("https://tuic-ibe-test.stage.cellular.de/?tripCode=MSZ1812SEE&ePackageCode=EPKATMSZ1812");
 		// page.setSearchField("Meine Suche");
