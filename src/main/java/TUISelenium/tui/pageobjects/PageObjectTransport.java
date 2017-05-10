@@ -80,6 +80,7 @@ public class PageObjectTransport extends BasePageObjects{
 		waitForSpinner();
 	}
 	
+	/*
 	
 	@FindBy(css="div[class='spinner-container']")
 	private WebElement spinnerContainerClosed;
@@ -102,6 +103,6 @@ public class PageObjectTransport extends BasePageObjects{
 		waitForSpinnerToBeClosed();
 		return this;
 	}
-
+*/
 	
 }
