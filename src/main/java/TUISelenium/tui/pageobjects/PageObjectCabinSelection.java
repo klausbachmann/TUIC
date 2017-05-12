@@ -53,7 +53,7 @@ public class PageObjectCabinSelection extends BasePageObjects {
 		Actions action = new Actions(driver);
 		action.moveToElement(buttonNext).click().perform();
 		//buttonNext.click();
-		waitForSpinner();
+//		waitForSpinner();
 	}
 	
 	public PageObjectCabinSelection increasePartyAdults() {

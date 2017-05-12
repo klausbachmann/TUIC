@@ -1,6 +1,7 @@
 package TUISelenium.tui.pageobjects;
 
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageObjectTransport extends BasePageObjects{
 	WebDriver driver;
 	WebDriverWait wait;
+	List<WebElement> shipBoundAirportList;
 	
 	public PageObjectTransport(WebDriver driver){
 		super(driver);
@@ -49,24 +51,54 @@ public class PageObjectTransport extends BasePageObjects{
 	
 	
 	public void outputAllAirports(){
-		List<WebElement> shipBoundAirportList = shipBoundAirports.findElements(By.tagName("option"));
+		shipBoundAirportList = shipBoundAirports.findElements(By.tagName("option"));
 		for( WebElement e:shipBoundAirportList){
-			System.out.println(e.getText());
+			System.out.println(e.getText().trim());
 		}
 	}
 	
+
 	
 	public void selectShipboundAirportByName(String airport){
+		
 		Select dropdown = new Select(shipBoundAirports);
+		
 		dropdown.selectByVisibleText(airport);
+		
 		waitForSpinner();
 	}
 	
+	
 	public void selectHomeboundAirportByName(String airport){
+		
 		Select dropdown = new Select(homeBoundAirports);
+		
 		dropdown.selectByVisibleText(airport);
+		
 		waitForSpinner();
 	}
+	
+	
+	public void selectShipboundAirportByIndex(int index){
+		
+		Select dropdown = new Select(shipBoundAirports);
+		
+		dropdown.selectByIndex(index);
+		
+		waitForSpinner();
+	}
+	
+	
+	public void selectHomeboundAirportByIndex(int index){
+		
+		Select dropdown = new Select(homeBoundAirports);
+		
+		dropdown.selectByIndex(index);
+		
+		waitForSpinner();
+	}
+	
+	
 	
 	public void btnAbreiseMitFlugzeugClick(){
 		Actions action = new Actions(driver);

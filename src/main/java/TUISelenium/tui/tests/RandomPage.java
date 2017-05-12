@@ -2,6 +2,7 @@ package TUISelenium.tui.tests;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.NoSuchElementException;
 //import org.junit.After;
 //import org.junit.Before;
 //import org.junit.Test;
@@ -25,7 +26,7 @@ public class RandomPage extends BaseTest{
 //	}
 
 	@Test(testName="Standard Buchungstestfall")
-	public void start() throws InterruptedException {
+	public void start() throws NoSuchElementException {
 		page = PageFactory.initElements(driver, PageObjectCabinSelection.class);
 		//page.open("https://tuic-ibe-test.stage.cellular.de/?tripCode=MSZ1812SEE&ePackageCode=EPKATMSZ1812");
 		page.open("https://buchung.tuicruises.com/?tripCode=MSD180506SEE&ePackageCode=EPKATMSD17361813");
@@ -47,8 +48,9 @@ public class RandomPage extends BaseTest{
 
 		PageObjectTransport transport = PageFactory.initElements(driver, PageObjectTransport.class);
 		transport.outputAllAirports();
-		transport.selectShipboundAirportByName("MÃ¼nchen");
-		transport.selectShipboundAirportByName("Basel");
+		transport.selectShipboundAirportByName("München");
+		transport.selectShipboundAirportByIndex(1);
+		transport.selectShipboundAirportByIndex(2);
 		transport.btnEigeneAbreiseClick();
 		transport.btnAbreiseMitFlugzeugClick();
 		transport.selectHomeboundAirportByName("Hamburg");
