@@ -11,49 +11,42 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePageObjects {
 	WebDriver driver;
-	WebDriverWait wait;
-	public BasePageObjects(){
+	//WebDriverWait wait;
+	//Actions action;
+
+	public BasePageObjects() {
 	}
-	
-	public BasePageObjects(WebDriver driver){
+
+	public BasePageObjects(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, 30);
+		//this.wait = wait;//new WebDriverWait(driver, 10);
+		//action = new Actions(driver);
 	}
-	
-	@FindBy(css="a[class='button button-cta button-next-page ']")
-	@CacheLookup
-	private WebElement buttonNext;
-	
-	public void clickNextButton(){
-		Actions action = new Actions(driver);
-		action.moveToElement(buttonNext).click().perform();
-		waitForSpinner();
-	}
-	
+
 	@FindBy(css = "div[class='spinner-container']")
 	private WebElement spinnerContainerClosed;
 
-	
-	public BasePageObjects waitForSpinnerToBeClosed() {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[class='spinner-container']")));
-		return this;
+	public void waitForSpinnerToBeClosed() {
+		System.out.println("*** SPINNER: WAIT FOR CLOSE");
+		new WebDriverWait(driver, 30).until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[class^='spinner-container']")));
+		System.out.println("*** SPINNER: CLOSED!");
+		// return this;
 	}
 
 	@FindBy(css = "div[class^='spinner-container']")
 	private WebElement spinnerContainerOpen;
 
 	public void waitForSpinnerToBeOpened() {
-		if(wait == null){
-			org.testng.Assert.fail("moin");
-		}
-		wait.until(ExpectedConditions.visibilityOf(spinnerContainerOpen));
-		//return this;
+		System.out.println("*** SPINNER: WAIT FOR OPEN");
+		new WebDriverWait(driver,30).until(ExpectedConditions.visibilityOf(spinnerContainerOpen));
+		System.out.println("*** SPINNER: OPEN!");
+		// return this;
 	}
 
 	public void waitForSpinner() {
 		waitForSpinnerToBeOpened();
 		waitForSpinnerToBeClosed();
-		//return this;
+		// return this;
 	}
 
 }

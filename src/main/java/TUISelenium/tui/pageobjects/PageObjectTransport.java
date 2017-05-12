@@ -17,6 +17,7 @@ public class PageObjectTransport extends BasePageObjects{
 	WebDriverWait wait;
 	
 	public PageObjectTransport(WebDriver driver){
+		super(driver);
 		this.driver = driver;
 		driver.manage().window().maximize();
 		this.wait = new WebDriverWait(driver, 30);

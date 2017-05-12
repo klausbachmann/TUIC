@@ -27,22 +27,23 @@ public class RandomPage extends BaseTest{
 	@Test(testName="Standard Buchungstestfall")
 	public void start() throws InterruptedException {
 		page = PageFactory.initElements(driver, PageObjectCabinSelection.class);
-		page.open("https://tuic-ibe-test.stage.cellular.de/?tripCode=MSZ1812SEE&ePackageCode=EPKATMSZ1812");
+		//page.open("https://tuic-ibe-test.stage.cellular.de/?tripCode=MSZ1812SEE&ePackageCode=EPKATMSZ1812");
+		page.open("https://buchung.tuicruises.com/?tripCode=MSD180506SEE&ePackageCode=EPKATMSD17361813");
 		// page.setSearchField("Meine Suche");
 		page.waitForHeaderItem();
 		// Thread.sleep(3000);
 		page.increasePartyAdults();
 
-		//page.waitForSpinnerToBeOpened();
-		//page.waitForSpinnerToBeClosed();
-		page.waitForSpinner();
+		page.waitForSpinnerToBeOpened();
+		page.waitForSpinnerToBeClosed();
+		//page.waitForSpinner();
 		page.btnFeelgoodPriceClick();
 		page.clickNextButton();
 		//page.waitForSpinner();
 
 		PageObjectWishcabin cabin = PageFactory.initElements(driver, PageObjectWishcabin.class);
 		cabin.clickNextButton();
-		cabin.waitForSpinner();
+		//cabin.waitForSpinner();
 
 		PageObjectTransport transport = PageFactory.initElements(driver, PageObjectTransport.class);
 		transport.outputAllAirports();
