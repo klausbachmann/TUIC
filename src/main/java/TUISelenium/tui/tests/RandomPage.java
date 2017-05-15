@@ -48,7 +48,7 @@ public class RandomPage extends BaseTest{
 
 		PageObjectTransport transport = PageFactory.initElements(driver, PageObjectTransport.class);
 		transport.outputAllAirports();
-		transport.selectShipboundAirportByName("München");
+		transport.selectShipboundAirportByName("MÃ¼nchen");
 		transport.selectShipboundAirportByIndex(1);
 		transport.selectShipboundAirportByIndex(2);
 		transport.btnEigeneAbreiseClick();
