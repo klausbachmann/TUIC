@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageObjectCabinSelection extends BasePageObjects {
 
 	WebDriver driver;
-	WebDriverWait wait;
+	//WebDriverWait wait;
 
 	public PageObjectCabinSelection() {
 	}
@@ -20,7 +20,7 @@ public class PageObjectCabinSelection extends BasePageObjects {
 	public PageObjectCabinSelection(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, 30);
+		//this.wait = new WebDriverWait(driver, 30);
 	}
 
 	public void open(String url) {
@@ -79,33 +79,8 @@ public class PageObjectCabinSelection extends BasePageObjects {
 	}
 
 	public PageObjectCabinSelection waitForHeaderItem() {
-		wait.until(ExpectedConditions.visibilityOf(headerItem));
+		new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOf(headerItem));
 		return this;
 	}
-
-//	@FindBy(css = "div[class='spinner-container']")
-//	private WebElement spinnerContainerClosed;
-//
-//	public void waitForSpinnerToBeClosed() {
-//		System.out.println("WAIT FOR CLOSE");
-//		
-//		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[class='spinner-container']")));
-//		//return this;
-//	}
-//
-//	@FindBy(css = "div[class^='spinner-container']")
-//	private WebElement spinnerContainerOpen;
-//
-//	public void waitForSpinnerToBeOpened() {
-//		System.out.println("WAIT FOR SPINNER");
-//		wait.until(ExpectedConditions.visibilityOf(spinnerContainerOpen));
-//		//return this;
-//	}
-//
-//	public void waitForSpinner() {
-//		waitForSpinnerToBeOpened();
-//		waitForSpinnerToBeClosed();
-//		//return this;
-//	}
 
 }

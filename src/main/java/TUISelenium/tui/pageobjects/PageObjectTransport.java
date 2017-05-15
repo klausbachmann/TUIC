@@ -25,14 +25,17 @@ public class PageObjectTransport extends BasePageObjects{
 		this.wait = new WebDriverWait(driver, 30);
 	}
 
-	/*@FindBy(css="a[class='button button-cta button-next-page ']")
+	@FindBy(css = "div[class='booking-pager bottom'] > div > div > a[class='button button-cta button-next-page ']")
 	@CacheLookup
 	private WebElement buttonNext;
 	
-	public PageObjectWishcabin clickNextButton(){
-		buttonNext.click();
-		return this;
-	}*/
+	public void clickNextButton(){
+		System.out.println("*** btnNextClick from Transport");
+		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(buttonNext));
+		Actions action = new Actions(driver);
+		action.moveToElement(buttonNext).click().perform();
+		waitForSpinner();
+	}
 	
 	@FindBy(id="input_shipboundtransporttype_type_0")
 	private WebElement btnAnreisemitFlugzeug;
@@ -113,29 +116,5 @@ public class PageObjectTransport extends BasePageObjects{
 		waitForSpinner();
 	}
 	
-	/*
-	
-	@FindBy(css="div[class='spinner-container']")
-	private WebElement spinnerContainerClosed;
-	
-	public PageObjectTransport waitForSpinnerToBeClosed(){
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[class='spinner-container']")));
-		return this;
-	}
-	
-	@FindBy(css="div[class^='spinner-container']")
-	private WebElement spinnerContainerOpen;
-	
-	public PageObjectTransport waitForSpinnerToBeOpened(){
-		wait.until(ExpectedConditions.visibilityOf(spinnerContainerOpen));
-		return this;
-	}
-	
-	public PageObjectTransport waitForSpinner(){
-		waitForSpinnerToBeOpened();
-		waitForSpinnerToBeClosed();
-		return this;
-	}
-*/
 	
 }
