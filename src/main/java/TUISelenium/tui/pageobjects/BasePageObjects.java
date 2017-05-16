@@ -60,7 +60,7 @@ public class BasePageObjects {
 
 	public void takeScreenshot() {
 		try {
-			DateFormat df = new SimpleDateFormat("'Screenshot_'dd.MM.YYYY-HH:mm:ss'.png'");
+			DateFormat df = new SimpleDateFormat("'Screenshot_'dd.MM.YYYY-HH-mm-ss'.png'");
 			File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screen, new File("./target/Screenshots/" + df.format(new Date())));
 		} catch (Exception e) {
