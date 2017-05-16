@@ -20,11 +20,11 @@ public class BaseTest {
 	public void init() throws MalformedURLException {
 		System.out.println("INIT");
 		//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		driver = new ChromeDriver();
+		//driver = new ChromeDriver();
 		
 		DesiredCapabilities caps = new DesiredCapabilities().chrome();
 		caps.setVersion("58");
-		//driver = new RemoteWebDriver(new URL("http://10.234.253.101:4444/wd/hub"), caps);
+		driver = new RemoteWebDriver(new URL("http://10.234.253.101:4444/wd/hub"), caps);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.manage().window().setSize(new Dimension(1400,600));
