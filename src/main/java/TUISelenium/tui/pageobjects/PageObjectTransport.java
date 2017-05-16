@@ -1,7 +1,6 @@
 package TUISelenium.tui.pageobjects;
 
 import java.util.List;
-import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,14 +14,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageObjectTransport extends BasePageObjects{
 	WebDriver driver;
-	WebDriverWait wait;
 	List<WebElement> shipBoundAirportList;
 	
 	public PageObjectTransport(WebDriver driver){
 		super(driver);
 		this.driver = driver;
-		driver.manage().window().maximize();
-		this.wait = new WebDriverWait(driver, 30);
 	}
 
 	@FindBy(css = "div[class='booking-pager bottom'] > div > div > a[class='button button-cta button-next-page ']")
@@ -31,7 +27,7 @@ public class PageObjectTransport extends BasePageObjects{
 	
 	public void clickNextButton(){
 		System.out.println("*** btnNextClick from Transport");
-		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(buttonNext));
+		new WebDriverWait(driver,45).until(ExpectedConditions.elementToBeClickable(buttonNext));
 		Actions action = new Actions(driver);
 		action.moveToElement(buttonNext).click().perform();
 		waitForSpinner();
@@ -106,7 +102,6 @@ public class PageObjectTransport extends BasePageObjects{
 	public void btnAbreiseMitFlugzeugClick(){
 		Actions action = new Actions(driver);
 		action.moveToElement(btnAbreisemitFlugzeug).click().perform();
-		//btnAbreisemitFlugzeug.click();
 		waitForSpinner();
 	}
 	

@@ -1,6 +1,5 @@
 package TUISelenium.tui.pageobjects;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,8 +16,6 @@ public class PageObjectPersonal extends BasePageObjects {
 		super(driver);
 		this.driver = driver;
 	}
-
-	private static String BASISSCHUTZOHNESELBSTBETEILIGUNG = "BOS";
 
 	public enum PolicyType {
 		BasisschutzOhneSelbstbeteiligung, PremiumschutzMitSelbstbeteiligung, PremiumschutzOhneSelbstbeteiligung, ReiserücktrittMitSelbstbeteiligung, ReiserücktrittOhneSelbstbeteiligung
@@ -46,7 +43,7 @@ public class PageObjectPersonal extends BasePageObjects {
 
 		System.out.println("*** btnNextClick from Transport");
 
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(buttonNext));
+		new WebDriverWait(driver, 45).until(ExpectedConditions.elementToBeClickable(buttonNext));
 
 		Actions action = new Actions(driver);
 

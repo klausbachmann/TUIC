@@ -18,8 +18,6 @@ public class PageObjectInsurances extends BasePageObjects {
 		this.driver = driver;
 	}
 
-	private static String BASISSCHUTZOHNESELBSTBETEILIGUNG = "BOS";
-
 	public enum PolicyType {
 		BasisschutzOhneSelbstbeteiligung, PremiumschutzMitSelbstbeteiligung, PremiumschutzOhneSelbstbeteiligung, ReiserücktrittMitSelbstbeteiligung, ReiserücktrittOhneSelbstbeteiligung
 	}
@@ -60,7 +58,7 @@ public class PageObjectInsurances extends BasePageObjects {
 
 		System.out.println("*** btnNextClick from Transport");
 
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(buttonNext));
+		new WebDriverWait(driver, 45).until(ExpectedConditions.elementToBeClickable(buttonNext));
 
 		Actions action = new Actions(driver);
 

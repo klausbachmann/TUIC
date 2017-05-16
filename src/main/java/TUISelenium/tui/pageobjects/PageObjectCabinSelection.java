@@ -1,10 +1,8 @@
 package TUISelenium.tui.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageObjectCabinSelection extends BasePageObjects {
 
 	WebDriver driver;
-	//WebDriverWait wait;
 
 	public PageObjectCabinSelection() {
 	}
@@ -20,7 +17,6 @@ public class PageObjectCabinSelection extends BasePageObjects {
 	public PageObjectCabinSelection(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
-		//this.wait = new WebDriverWait(driver, 30);
 	}
 
 	public void open(String url) {
@@ -49,7 +45,7 @@ public class PageObjectCabinSelection extends BasePageObjects {
 
 	public void clickNextButton() {
 		System.out.println("*** btnNextClick from CabinSelection");
-		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(buttonNext));
+		new WebDriverWait(driver,45).until(ExpectedConditions.elementToBeClickable(buttonNext));
 		Actions action = new Actions(driver);
 		action.moveToElement(buttonNext).click().perform();
 		//buttonNext.click();
@@ -79,7 +75,7 @@ public class PageObjectCabinSelection extends BasePageObjects {
 	}
 
 	public PageObjectCabinSelection waitForHeaderItem() {
-		new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOf(headerItem));
+		new WebDriverWait(driver, 45).until(ExpectedConditions.visibilityOf(headerItem));
 		return this;
 	}
 
