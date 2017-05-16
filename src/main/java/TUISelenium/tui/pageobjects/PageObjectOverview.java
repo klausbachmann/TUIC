@@ -1,5 +1,6 @@
 package TUISelenium.tui.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,15 +27,10 @@ public class PageObjectOverview extends BasePageObjects {
 	@FindBy(className="booking-status")
 	private WebElement bookingStatus;
 	
-	private WebElement input_invoice_additionaladdress;
-	private WebElement input_invoice_postalcode;
-	private WebElement input_invoice_city;
-	private WebElement input_invoice_countrycode;
-	private WebElement input_invoice_telephone;
-	private WebElement input_invoice_mobilenumber;
-	private WebElement input_invoice_email;
-	private WebElement input_invoice_emailrepeat;
-
+	@FindBy(className="form-group  content")
+	private WebElement paymentBox;
+	
+	private WebElement input_overviewandapproval_approvalofterms;
 
 	public void clickNextButton() {
 
@@ -51,6 +47,41 @@ public class PageObjectOverview extends BasePageObjects {
 
 	public void outputOverview(){
 		System.out.println(bookingStatus.getText());
+	}
+	
+	public void paymentLastschriftClick(){
+		driver.findElement(By.cssSelector("label[class^='js-item item ']:nth-child(1)")).click();
+		waitForSpinner();
+	}
+	
+	public void paymentMasterCardClick(){
+		driver.findElement(By.cssSelector("label[class^='js-item item ']:nth-child(2)")).click();
+		waitForSpinner();
+	}
+	
+	public void paymentVisaCardClick(){
+		driver.findElement(By.cssSelector("label[class^='js-item item ']:nth-child(3)")).click();
+		waitForSpinner();
+	}
+	
+	public void paymentAmericanexpressClick(){
+		driver.findElement(By.cssSelector("label[class^='js-item item ']:nth-child(4)")).click();
+		waitForSpinner();
+	}
+	
+	public void paymentTUICardClick(){
+		driver.findElement(By.cssSelector("label[class^='js-item item ']:nth-child(5)")).click();
+		waitForSpinner();
+	}
+	
+	public void paymentGuteReiseCardClick(){
+		driver.findElement(By.cssSelector("label[class^='js-item item ']:nth-child(6)")).click();
+		waitForSpinner();
+	}
+	
+	public void AGBClick(){
+		Actions action = new Actions(driver);
+		action.moveToElement(input_overviewandapproval_approvalofterms).click().perform();
 	}
 
 }

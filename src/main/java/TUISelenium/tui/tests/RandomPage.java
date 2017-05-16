@@ -1,13 +1,19 @@
 package TUISelenium.tui.tests;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 //import org.junit.After;
 //import org.junit.Before;
 //import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+
+import com.beust.testng.TestNG;
 
 import TUISelenium.tui.pageobjects.PageObjectCabinSelection;
 import TUISelenium.tui.pageobjects.PageObjectInsurances;
@@ -37,8 +43,9 @@ public class RandomPage extends BaseTest{
 		// page.setSearchField("Meine Suche");
 		page.waitForHeaderItem();
 		// Thread.sleep(3000);
+		page.takeScreenshot();
+		
 		page.increasePartyAdults();
-
 		page.waitForSpinnerToBeOpened();
 		page.waitForSpinnerToBeClosed();
 		//page.waitForSpinner();
@@ -50,6 +57,7 @@ public class RandomPage extends BaseTest{
 		cabin.clickNextButton();
 		//cabin.waitForSpinner();
 
+		 
 		PageObjectTransport transport = PageFactory.initElements(driver, PageObjectTransport.class);
 		transport.outputAllAirports();
 		transport.selectShipboundAirportByName("München");
@@ -96,6 +104,16 @@ public class RandomPage extends BaseTest{
 		
 		PageObjectOverview overview = PageFactory.initElements(driver, PageObjectOverview.class);
 		overview.outputOverview();
+//		overview.paymentLastschriftClick();
+//		overview.paymentMasterCardClick();
+//		overview.paymentVisaCardClick();
+//		overview.paymentAmericanexpressClick();
+//		overview.paymentTUICardClick();
+		overview.paymentGuteReiseCardClick();
+		overview.AGBClick();
+		
+		Thread.sleep(5000);
+		
 		
 	}
 
