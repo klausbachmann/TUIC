@@ -1,4 +1,4 @@
-package TUISelenium.tui.pageobjects;
+package TUISelenium.tuic.ibe.pageobjects;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -31,7 +31,7 @@ public class BasePageObjects {
 
 	public void waitForSpinnerToBeClosed() {
 		System.out.println("*** SPINNER: WAIT FOR CLOSE");
-		new WebDriverWait(driver, 60).until(
+		new WebDriverWait(driver, 30).until(
 				ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[class^='spinner-container']")));
 		System.out.println("*** SPINNER: CLOSED!");
 	}
@@ -41,13 +41,24 @@ public class BasePageObjects {
 
 	public void waitForSpinnerToBeOpened() {
 		System.out.println("*** SPINNER: WAIT FOR OPEN");
-		new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOf(spinnerContainerOpen));
+		new WebDriverWait(driver, 2).until(ExpectedConditions.visibilityOf(spinnerContainerOpen));
 		System.out.println("*** SPINNER: OPEN!");
 	}
 
+	/**
+	 * <b>Ladekringel Bildschirm</b><p>
+	 * Nach einigen Operationen in der IBE wird<p>
+	 * der Ladekringel "Spinner" ausgelöst. Diese Funktion
+	 * wartet, bis der Ladekringel geöffnet und wieder geschlossen wird
+	 */
 	public void waitForSpinner() {
-		waitForSpinnerToBeOpened();
-		waitForSpinnerToBeClosed();
+		try {
+			waitForSpinnerToBeOpened();
+			waitForSpinnerToBeClosed();
+		} catch (Exception e) {
+			System.out.println("Spinner Exception");
+		}
+		
 	}
 
 	public void takeScreenshot() {
