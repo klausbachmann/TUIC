@@ -1,4 +1,4 @@
-package TUISelenium.tui.tests;
+package TUISelenium.tuic.ibe.tests;
 
 import org.openqa.selenium.NoSuchElementException;
 //import org.junit.After;
@@ -7,13 +7,13 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-import TUISelenium.tui.pageobjects.PageObjectCabinSelection;
-import TUISelenium.tui.pageobjects.PageObjectInsurances;
-import TUISelenium.tui.pageobjects.PageObjectInsurances.PolicyType;
-import TUISelenium.tui.pageobjects.PageObjectOverview;
-import TUISelenium.tui.pageobjects.PageObjectPersonal;
-import TUISelenium.tui.pageobjects.PageObjectTransport;
-import TUISelenium.tui.pageobjects.PageObjectWishcabin;
+import TUISelenium.tuic.ibe.pageobjects.PageObjectCabinSelection;
+import TUISelenium.tuic.ibe.pageobjects.PageObjectInsurances;
+import TUISelenium.tuic.ibe.pageobjects.PageObjectOverview;
+import TUISelenium.tuic.ibe.pageobjects.PageObjectPersonal;
+import TUISelenium.tuic.ibe.pageobjects.PageObjectTransport;
+import TUISelenium.tuic.ibe.pageobjects.PageObjectWishcabin;
+import TUISelenium.tuic.ibe.pageobjects.PageObjectInsurances.PolicyType;
 
 public class RandomPage extends BaseTest{
 
@@ -21,15 +21,16 @@ public class RandomPage extends BaseTest{
 
 	@Test(testName="Standard Buchungstestfall")
 	public void start() throws NoSuchElementException, InterruptedException {
+		driver.get("https://buchung.tuicruises.com/?tripCode=MSD180506SEE&ePackageCode=EPKATMSD17361813");
 		page = PageFactory.initElements(driver, PageObjectCabinSelection.class);
 		//page.open("https://tuic-ibe-test.stage.cellular.de/?tripCode=MSZ1812SEE&ePackageCode=EPKATMSZ1812");
-		page.open("https://buchung.tuicruises.com/?tripCode=MSD180506SEE&ePackageCode=EPKATMSD17361813");
+		//page.open("https://buchung.tuicruises.com/?tripCode=MSD180506SEE&ePackageCode=EPKATMSD17361813");
+		
 		page.waitForHeaderItem();
-		page.takeScreenshot();
+		//page.takeScreenshot();
 		page.increasePartyAdults();
-		page.waitForSpinnerToBeOpened();
-		page.waitForSpinnerToBeClosed();
 		page.btnFeelgoodPriceClick();
+		page.waitForSpinner();
 		page.clickNextButton();
 
 		PageObjectWishcabin cabin = PageFactory.initElements(driver, PageObjectWishcabin.class);
@@ -64,6 +65,7 @@ public class RandomPage extends BaseTest{
 		insurance.setFirstNameAdult3("Jenny");
 		insurance.setLastNameAdult3("Franklyn");
 		insurance.setDayOfBirthPerson3("01.10.1988");
+		insurance.btnAcceptInsuranceConditionsClick();
 		insurance.clickNextButton();
 		
 		PageObjectPersonal personal = PageFactory.initElements(driver, PageObjectPersonal.class);
@@ -89,7 +91,7 @@ public class RandomPage extends BaseTest{
 		overview.paymentGuteReiseCardClick();
 		overview.AGBClick();
 		
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		
 		
 	}
