@@ -1,4 +1,4 @@
-package TUISelenium.tui.pageobjects;
+package TUISelenium.tuic.ibe.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

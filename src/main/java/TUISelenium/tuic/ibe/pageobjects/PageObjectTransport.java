@@ -1,4 +1,4 @@
-package TUISelenium.tui.pageobjects;
+package TUISelenium.tuic.ibe.pageobjects;
 
 import java.util.List;
 
@@ -59,7 +59,7 @@ public class PageObjectTransport extends BasePageObjects{
 
 	
 	public void selectShipboundAirportByName(String airport){
-		
+		new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(shipBoundAirports));
 		Select dropdown = new Select(shipBoundAirports);
 		
 		dropdown.selectByVisibleText(airport);
@@ -70,11 +70,16 @@ public class PageObjectTransport extends BasePageObjects{
 	
 	public void selectHomeboundAirportByName(String airport){
 		
-		Select dropdown = new Select(homeBoundAirports);
-		
-		dropdown.selectByVisibleText(airport);
-		
-		waitForSpinner();
+		try {
+			Select dropdown = new Select(homeBoundAirports);
+			
+			dropdown.selectByVisibleText(airport);
+			
+			waitForSpinner();
+		} catch (Exception e) {
+			org.testng.Assert.fail("Kann Fughafen " +  airport + " nicht finden");
+			}
+
 	}
 	
 	

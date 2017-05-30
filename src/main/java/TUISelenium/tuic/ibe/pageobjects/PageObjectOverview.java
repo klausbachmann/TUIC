@@ -1,4 +1,4 @@
-package TUISelenium.tui.pageobjects;
+package TUISelenium.tuic.ibe.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,10 +22,12 @@ public class PageObjectOverview extends BasePageObjects {
 	@CacheLookup
 	private WebElement buttonNext;
 
-	@FindBy(className="booking-status")
+	//@FindBy(className="booking-status")
+	@FindBy(css="[class='booking-status']")
 	private WebElement bookingStatus;
 	
-	@FindBy(className="form-group  content")
+//	@FindBy(className="form-group  content")
+	@FindBy(css="[class='form-group  content']")
 	private WebElement paymentBox;
 	
 	private WebElement input_overviewandapproval_approvalofterms;
