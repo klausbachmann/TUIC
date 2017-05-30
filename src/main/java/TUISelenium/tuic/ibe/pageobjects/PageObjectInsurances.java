@@ -1,4 +1,4 @@
-package TUISelenium.tui.pageobjects;
+package TUISelenium.tuic.ibe.pageobjects;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -48,7 +48,7 @@ public class PageObjectInsurances extends BasePageObjects {
 	private WebElement input_adult_2_dateofbirth;
 	private WebElement input_adult_3_dateofbirth;
 
-	@FindBy(id = "accept-insurance-conditions")
+	@FindBy(id = "input_insurancetermsandconditions_approvalofterms")
 	private WebElement accept_insurance_conditions;
 
 	@FindBy(css = "a[class='button button-show-insurances js-button-show-insurances ']")
@@ -67,7 +67,13 @@ public class PageObjectInsurances extends BasePageObjects {
 		waitForSpinner();
 	}
 
-	public void setIndividualCount(int count) {
+	public void btnAcceptInsuranceConditionsClick(){
+//		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(accept_insurance_conditions));
+		new Actions(driver).moveToElement(accept_insurance_conditions).click().perform();
+	}
+	
+	public void setIndividualCount(int count) throws InterruptedException {
+		Thread.sleep(2000);
 		input_insurancepolicies_individualcount.clear();
 		input_insurancepolicies_individualcount.sendKeys(String.valueOf(count));
 		input_insurancepolicies_individualcount.sendKeys(Keys.TAB);
@@ -137,7 +143,7 @@ public class PageObjectInsurances extends BasePageObjects {
 	public void setFirstNameAdult3(String firstname) {
 		input_adult_3_firstname.sendKeys(firstname);
 	}
-	
+
 	public void setLastNameAdult1(String firstname) {
 		input_adult_1_lastname.sendKeys(firstname);
 	}
@@ -149,16 +155,16 @@ public class PageObjectInsurances extends BasePageObjects {
 	public void setLastNameAdult3(String firstname) {
 		input_adult_3_lastname.sendKeys(firstname);
 	}
-	
-	public void setDayOfBirthPerson1(String birthday){
+
+	public void setDayOfBirthPerson1(String birthday) {
 		input_adult_1_dateofbirth.sendKeys(birthday);
 	}
-	
-	public void setDayOfBirthPerson2(String birthday){
+
+	public void setDayOfBirthPerson2(String birthday) {
 		input_adult_2_dateofbirth.sendKeys(birthday);
 	}
-	
-	public void setDayOfBirthPerson3(String birthday){
+
+	public void setDayOfBirthPerson3(String birthday) {
 		input_adult_3_dateofbirth.sendKeys(birthday);
 	}
 
