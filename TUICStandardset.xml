@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="TUIC Standard Testset suite"
+	parallel="classes">
+	<parameter name="browser" value="chrome"></parameter>
+	<test verbose="0" name="Testszenario 1">
+		<classes>
+			<class name="TUISelenium.tuic.ibe.tests.Testszenario1" />
+		</classes>
+	</test>
+	<test verbose="0" name="Testszenario 2">
+		<classes>
+			<class name="TUISelenium.tuic.ibe.tests.Testszenario2" />
+		</classes>
+	</test>
+
+	<test verbose="0" name="Testszenario 3">
+		<classes>
+			<class name="TUISelenium.tuic.ibe.tests.Testszenario3" />
+		</classes>
+	</test>
+
+	<test verbose="0" name="Testszenario 4">
+		<classes>
+			<class name="TUISelenium.tuic.ibe.tests.Testszenario4" />
+		</classes>
+	</test>
+</suite> 
