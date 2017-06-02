@@ -30,22 +30,22 @@ public class BaseTest {
 
 		switch (browser) {
 		case "chrome":
-//			System.setProperty("webdriver.chrome.driver", "chromedriver");
-//			driver = new ChromeDriver();
+			// System.setProperty("webdriver.chrome.driver", "chromedriver");
+			// driver = new ChromeDriver();
 
-			 caps = new DesiredCapabilities().chrome();
-			 caps.setVersion("58");
-			 driver = new RemoteWebDriver(new
-			 URL("http://10.234.253.101:4444/wd/hub"), caps);
+			caps = new DesiredCapabilities().chrome();
+			caps.setVersion("58");
+			driver = new RemoteWebDriver(new URL("http://10.234.253.101:4444/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 
 			break;
 
 		case "firefox":
-			System.setProperty("webdriver.gecko.driver", "geckodriver");
-			driver = new FirefoxDriver();
+//			System.setProperty("webdriver.gecko.driver", "geckodriver");
+//			driver = new FirefoxDriver();
 			caps = new DesiredCapabilities().firefox();
+			driver = new RemoteWebDriver(new URL("http://10.234.253.101:4444/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 			break;
@@ -60,10 +60,10 @@ public class BaseTest {
 		}
 		System.out.println("Starting Test with browser: " + browser);
 	}
-	
-	public String getLocalStorage(String key){
-		JavascriptExecutor js = ((JavascriptExecutor)driver);
-		String s = (String) js.executeScript("return window.localStorage.getItem('"+ key + "')");
+
+	public String getLocalStorage(String key) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		String s = (String) js.executeScript("return window.localStorage.getItem('" + key + "')");
 		return s;
 	}
 

@@ -65,6 +65,10 @@
 					<configuration>
 						<systemPropertyVariables>
 							<environment>${browser}</environment>
+							<environment>${reise1}</environment>
+							<environment>${reise2}</environment>
+							<environment>${reise3}</environment>
+							<environment>${reise4}</environment>
 						</systemPropertyVariables>
 						<suiteXmlFiles>
 							<suiteXmlFile>TUICStandardset.xml</suiteXmlFile>

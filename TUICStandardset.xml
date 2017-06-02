@@ -3,7 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="TUIC Standard Testset suite"
 	parallel="classes">
 	<parameter name="browser" value="${browser}"></parameter> 
-	<test verbose="0" name="Testszenario 1">
+	<parameter name="reise1" value="${reise1}"></parameter>
+	<parameter name="reise2" value="${reise2}"></parameter>
+	<parameter name="reise3" value="${reise3}"></parameter>
+	<parameter name="reise4" value="${reise4}"></parameter>
+	<test verbose="0" name="Testszenario 1" >
 		<classes>
 			<class name="TUISelenium.tuic.ibe.tests.Testszenario1" />
 		</classes>
