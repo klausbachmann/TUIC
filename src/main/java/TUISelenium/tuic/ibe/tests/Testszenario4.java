@@ -1,6 +1,7 @@
 package TUISelenium.tuic.ibe.tests;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import TUISelenium.tuic.ibe.pageobjects.PageObjectCabinSelection;
@@ -15,8 +16,9 @@ import TUISelenium.tuic.ibe.pageobjects.PageObjectWishcabin;
 public class Testszenario4 extends BaseTest{
 	
 	@Test
-	public void testszanerio4() throws InterruptedException{
-		driver.get("https://buchung.tuicruises.com/?tripCode=MSV1725SEE&ePackageCode=EPKATMSV171826");
+	@Parameters({"reise4"})
+	public void testszanerio4(String reise) throws InterruptedException{
+		driver.get(reise);
 		
 		PageObjectCabinSelection cabin = PageFactory.initElements(driver, PageObjectCabinSelection.class);
 		cabin.waitForHeaderItem();
