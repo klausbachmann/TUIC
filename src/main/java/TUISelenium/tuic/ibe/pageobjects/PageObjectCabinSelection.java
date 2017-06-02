@@ -22,6 +22,7 @@ public class PageObjectCabinSelection extends BasePageObjects {
 	public PageObjectCabinSelection(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
+		System.out.println(driver.getCurrentUrl());
 	}
 
 	public void open(String url) {
@@ -120,8 +121,8 @@ public class PageObjectCabinSelection extends BasePageObjects {
 		
 		/*
 		 * ACHTUNG:
-		 * Wenn die Kabine die aktive Kabine ist, wird der Spinner nicht ausgeloest.
-		 * Nur wenn eine neue Kabinenkategorie ausgewaehlt wird, muss auf den Spinner gewartet werden*/
+		 * Wenn die Kabine die aktive Kabine ist, wird der Spinner ausgeloest.
+		 * Nur wenn eine neue Kabinenkategorie ausgewaehlt wird, muss nicht auf den Spinner gewartet werden*/
 		
 		// waitForSpinner();
 	}

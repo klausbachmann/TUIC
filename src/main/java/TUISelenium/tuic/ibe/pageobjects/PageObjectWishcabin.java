@@ -17,6 +17,7 @@ public class PageObjectWishcabin extends BasePageObjects{
 	public PageObjectWishcabin(WebDriver driver){
 		super(driver);
 		this.driver = driver;
+		System.out.println(driver.getCurrentUrl());
 	}
 	
 	public enum CategoryCode {INAW, INBW, INCW, 
@@ -27,7 +28,7 @@ public class PageObjectWishcabin extends BasePageObjects{
 								JBAW, SUSW}
 	
 	            
-	@FindBy(css="a[class='button button-cta button-next-page ']")
+	@FindBy(css = "div[class='booking-pager bottom'] > div > div > a[class='button button-cta button-next-page ']")
 	@CacheLookup
 	private WebElement buttonNext;
 	
@@ -52,6 +53,11 @@ public class PageObjectWishcabin extends BasePageObjects{
 	
 	public void selectPriceCategoryByIndex(int index){
 		new Select(input_cabincategory_categorycode).selectByIndex(index);
+		waitForSpinner();
+	}
+	
+	public void selectPriceCategoryByValue(String code){
+		new Select(input_cabincategory_categorycode).selectByValue(code);
 		waitForSpinner();
 	}
 	
