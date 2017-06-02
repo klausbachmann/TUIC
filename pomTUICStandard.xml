@@ -64,7 +64,7 @@
 					<version>2.20</version>
 					<configuration>
 						<systemPropertyVariables>
-							<environment>${env.PARAM}</environment>
+							<environment>${browser}</environment>
 						</systemPropertyVariables>
 						<suiteXmlFiles>
 							<suiteXmlFile>TUICStandardset.xml</suiteXmlFile>
