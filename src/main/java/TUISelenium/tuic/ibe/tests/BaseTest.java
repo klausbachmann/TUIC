@@ -45,6 +45,7 @@ public class BaseTest {
 //			System.setProperty("webdriver.gecko.driver", "geckodriver");
 //			driver = new FirefoxDriver();
 			caps = new DesiredCapabilities().firefox();
+			caps.setVersion("53");
 			driver = new RemoteWebDriver(new URL("http://10.234.253.101:4444/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
