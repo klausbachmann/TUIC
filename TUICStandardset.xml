@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="TUIC Standard Testset suite"
 	parallel="classes">
-	<parameter name="browser" value="chrome"></parameter>
+	<!--  <parameter name="browser" value="chrome"></parameter>  -->
 	<test verbose="0" name="Testszenario 1">
 		<classes>
 			<class name="TUISelenium.tuic.ibe.tests.Testszenario1" />
